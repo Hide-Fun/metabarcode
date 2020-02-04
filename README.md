@@ -3,11 +3,7 @@
 
 # metabr
 
-<!-- badges: start -->
-
-<!-- badges: end -->
-
-The goal of metabr is to …
+metabr makes metabarcoding more efficient.
 
 ## Installation
 
@@ -15,7 +11,7 @@ You can install the released version of metabr from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("metabr")
+devtools::install_github("metabr")
 ```
 
 ## Example

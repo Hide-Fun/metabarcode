@@ -3,15 +3,19 @@
 #' The second paragraph is recognized as the description.
 #' It is not recommended to use @@title and @@description explicitly.
 #' @param string A character
-#' @export tidyverse
+#' @export
 #' @examples
 #' extract_num(ABD_2-1-10_GG)
-extract_num = function(string) {
-  if (str_detect(string, "\\d{1,2}-\\d{1,2}-\\d{1,2}")) {
-    str_extract(string, "\\d{1,2}-\\d{1,2}-\\d{1,2}")
-  } else if (str_detect(string, "\\d{1,2}-\\d{1,2}")) {
-    str_extract(string, "\\d{1,2}-\\d{1,2}")
+label_extract = function(string) {
+  stopifnot(length(string) == 1)
+  if (!is.character(string)) {
+    stop("string must be a character")
+  }
+  if (stringr::str_detect(string, "\\d{1,2}-\\d{1,2}-\\d{1,2}")) {
+    stringr::str_extract(string, "\\d{1,2}-\\d{1,2}-\\d{1,2}")
+  } else if (stringr::str_detect(string, "\\d{1,2}-\\d{1,2}")) {
+    stringr::str_extract(string, "\\d{1,2}-\\d{1,2}")
   } else {
-    str_extract(string, "\\d{1,2}")
+    stringr::str_extract(string, "\\d{1,2}")
   }
 }
