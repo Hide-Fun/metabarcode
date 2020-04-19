@@ -3,12 +3,24 @@
 #' This function make index_1.fast and index_2.fast from SampleSheet.csv.
 #' @param .filename character (e.g. "SampleSheet.csv")
 #' @param .skip integer, number of skipping row, default 18
+#' @param .id id column
+#' @param .index_1 index1 column
+#' @param .index_2 index2 column
 #' @export
-make_index = function(.filename, .skip) {
+make_index = function(.filename, .skip, .id, .index_1, .index_2) {
+  # load data.
   samplesheet <- readr::read_csv(.filename, skip = .skip)
-  index <- dplyr::tibble(ID <- samplesheet$Sample_Name,
-                        index_1 <- samplesheet$index,
-                        index_2 <- samplesheet$index2) %>%
+  #
+  ID <- samplesheet %>%
+    dplyr::select(.id)
+  index_1 <- samplesheet %>%
+    dplyr::select(.index_1)
+  index_2 <- samplesheet %>%
+    dplyr::select(.index_2)
+  #
+  index <- dplyr::tibble(ID <- ID,
+                        index_1 <- index_1,
+                        index_2 <- index_2) %>%
     dplyr::mutate(ID <- stringr::str_c(">", ID)) %>%
     tibble::add_column(index_num <- seq(length.out = nrow(samplesheet), by = 2) + 1,
                        ID_num <- seq(length.out = nrow(samplesheet), by = 2))
