@@ -15,19 +15,14 @@ knitr::opts_chunk$set(
 
 # metabr
 
-<!-- badges: start -->
-[![Travis build status](https://travis-ci.org/Hide-Fun/metabr.svg?branch=master)](https://travis-ci.org/Hide-Fun/metabr)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/Hide-Fun/metabr?branch=master&svg=true)](https://ci.appveyor.com/project/Hide-Fun/metabr)
-<!-- badges: end -->
-
-The goal of metabr is to ...
+metabr makes metabarcoding more efficient.
 
 ## Installation
 
 You can install the released version of metabr from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("metabr")
+devtools::install_github("metabr")
 ```
 
 ## Example

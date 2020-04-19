@@ -2,19 +2,15 @@
 % Please edit documentation in R/make_index.R
 \name{index_make}
 \alias{index_make}
-\title{Making Index fast file.}
+\title{Making Index fast file for claident.}
 \usage{
-index_make(filename, skip = 18)
+index_make(.filename, .skip = 18)
 }
 \arguments{
-\item{filename}{SampleSheet.csv}
+\item{.filename}{"SampleSheet.csv"}
 
-\item{skip}{number of skip row, default 18}
+\item{.skip}{number of skip row, default 18}
 }
 \description{
-The second paragraph is recognized as the description.
-It is not recommended to use @title and @description explicitly.
-}
-\examples{
-extract_num(ABD_2-1-10_GG)
+This function make index_1.fast and index_2.fast from SampleSheet.csv.
 }

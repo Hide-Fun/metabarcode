@@ -1,6 +1,6 @@
-Package: metabr
+Package: Ozouni
 Type: Package
-Title: metabr; tools for metabarcoding
+Title: Ozouni; tools for metabarcoding
 Version: 0.0.0.9000
 Authors@R: person("Hidehito", "Okada", role = c("aut", "cre"), email = "agarikusurusu@gmail.com")
 Description: Purpose of this package makes metabarcoding and tidy workflow more efficient. 
@@ -10,13 +10,17 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests: 
-    testthat
-RoxygenNote: 7.0.2
+    testthat,
+    ggplot2
+RoxygenNote: 7.1.0
 Imports: 
-    dplyr (>= 0.8.3),
-    readr (>= 1.3.1),
-    stringr (>= 1.4.0),
-    tibble (>= 2.1.3),
-    tidyr (>= 1.0.0)
-    
-    
+    vegan,
+    dplyr,
+    tidyr,
+    tibble,
+    stringr,
+    readr,
+    purrr,
+    magrittr,
+    glue,
+    rlang

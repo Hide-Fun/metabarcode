@@ -2,7 +2,7 @@
 % Please edit documentation in R/metabr.R
 \name{label_extract}
 \alias{label_extract}
-\title{Extracting label number.}
+\title{Title of the simple function to extract_num.}
 \usage{
 label_extract(string)
 }
@@ -10,9 +10,9 @@ label_extract(string)
 \item{string}{A character}
 }
 \description{
-this function extraxt number from chracter.
-accepting number type is "2-10", "1-9-3", "1-9-10", "3" ...etc.
+The second paragraph is recognized as the description.
+It is not recommended to use @title and @description explicitly.
 }
 \examples{
-label_extract("ABC_2-1-10_DE")
+extract_num(ABD_2-1-10_GG)
 }

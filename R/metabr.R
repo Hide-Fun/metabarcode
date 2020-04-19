@@ -1,21 +1,21 @@
-#' Title of the simple function to extract_num.
+#' Extracting label number.
 #'
-#' The second paragraph is recognized as the description.
-#' It is not recommended to use @@title and @@description explicitly.
+#' this function extraxt number from chracter.
+#' accepting number type is "2-10", "1-9-3", "1-9-10", "3" ...etc.
 #' @param string A character
 #' @export
 #' @examples
-#' extract_num(ABD_2-1-10_GG)
+#' label_extract("ABC_2-1-10_DE")
 label_extract = function(string) {
   stopifnot(length(string) == 1)
   if (!is.character(string)) {
     stop("string must be a character")
   }
-  if (stringr::str_detect(string, "\\d{1,2}-\\d{1,2}-\\d{1,2}")) {
-    stringr::str_extract(string, "\\d{1,2}-\\d{1,2}-\\d{1,2}")
-  } else if (stringr::str_detect(string, "\\d{1,2}-\\d{1,2}")) {
-    stringr::str_extract(string, "\\d{1,2}-\\d{1,2}")
+  if (stringr::str_detect(string, "\\d+-\\d+-\\d+")) {
+    stringr::str_extract(string, "\\d+-\\d+-\\d+")
+  } else if (stringr::str_detect(string, "\\d+-\\d+")) {
+    stringr::str_extract(string, "\\d+-\\d+")
   } else {
-    stringr::str_extract(string, "\\d{1,2}")
+    stringr::str_extract(string, "\\d+")
   }
 }

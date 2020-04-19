@@ -4,10 +4,10 @@
 \alias{interval_time}
 \title{Cariculate interval time}
 \usage{
-interval_time(.col)
+interval_time(df)
 }
 \arguments{
-\item{.col}{time data (<dttm>, <date>)}
+\item{df}{A data.frame}
 }
 \description{
 Cariculate intercal time from camera survey.
