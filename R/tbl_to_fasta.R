@@ -6,7 +6,7 @@ tibble_to_fasta = function(.data, .otu, .seq) {
   otu_col <- .data %>%
     dplyr::select(!!otu) %>%
     rename(col = !!otu) %>%
-    mutate(col = str_c(">", col)) %>%
+    mutate(col = paste0(">", col)) %>%
     add_column(num = seq(1, 2 * n, by = 2))
   seq_col <- .data %>%
     dplyr::select(!!seq) %>%
