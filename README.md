@@ -5,13 +5,15 @@
 
 このパッケージは今まで解析に使用した自作関数をまとめたものです。
 
-## Installation
+## インストール
 
 You can install the released version of metabr from
 Github with:
 
 ``` r
-devtools::install_github("metabr")
+devtools::install_github("Hide-Fun/metabr")
 ```
 
+## ライセンス
+MIT
 
