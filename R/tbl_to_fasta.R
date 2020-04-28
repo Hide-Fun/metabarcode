@@ -1,4 +1,10 @@
-tibble_to_fasta = function(.data, .otu, .seq) {
+#' Convert table to fasta.
+#'
+#' @param .data table
+#' @param .otu otu column name.
+#' @param .seq sequence column name.
+#' @export
+table_to_fasta = function(.data, .otu, .seq) {
   otu <- enquo(.otu)
   seq <- enquo(.seq)
   # select

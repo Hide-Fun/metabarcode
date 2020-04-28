@@ -1,10 +1,10 @@
 #' Creating table for FUNGuild.
 #'
 #' Creating table for analysis of FUNGuild ( http://www.stbates.org/guilds/app.php ).
-#' This function requir two tables, (1)summary_table of OTU/read_num, (2)identification of each OTU.
+#' This function requir two tables, (1) summary_table of OTU/read_num, (2) identification of each OTU.
 #' Names of output file is Funguild_DB.txt.
-#' @param .otu_table sumary table like "summary_nonchimeras.txt"
-#' @param .identify_list identifying result of claident genarating by `clmergassign` or `classigntax`.
+#' @param .otu_table sumary table.
+#' @param .identify_list identifying result.
 #' @export
 Funguild_DB = function(.otu_table, .identify_list) {
   table <- .otu_table

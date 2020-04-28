@@ -5,7 +5,7 @@
 #' @param .row logical. Want rownames ?
 #' @param .rowname character.
 #' @export
-tbl_to_matrix = function(.tbl, .row = F, .rowname = NULL) {
+tibble_to_matrix = function(.tbl, .row = F, .rowname = NULL) {
   if(.row == T) {
     if(is.null(.rowname)) {
       stop("You must set rowname.")

@@ -1,10 +1,10 @@
 #' Convert fasta to table.
 #'
 #' converting fasta format file to table that have two rows including  OTU and sequence.
-#' @param .interval interval time.
-#' @param .pattern reglex.
+#' @param .fasta fasta format files.
+#' @param .col_name name of column.
 #' @export
-fasta_to_tibble = function(.fasta, .col_name = X1) {
+fasta_to_table = function(.fasta, .col_name = X1) {
   col_name <- rlang::enquo(.col_name)
   # rowname to column.
   df <- .fasta %>%

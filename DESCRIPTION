@@ -1,11 +1,9 @@
-Package: Ozouni
+Package: metabar
 Type: Package
-Title: Ozouni; tools for metabarcoding
+Title: matabar; tools for metabarcoding
 Version: 0.0.0.9000
-Authors@R: person("Hidehito", "Okada", role = c("aut", "cre"), email = "agarikusurusu@gmail.com")
-Description: Purpose of this package makes metabarcoding and tidy workflow more efficient. 
-        metabar include function like that; "index_make" create index.fasta file from Illumina's SampleSheet.csv.
-        "fungild_DB" makes table for FUNGuild analysis. "label_extract" extract number from sample names.
+Authors@R: person("Hidehito", "Okada", role = c("aut", "cre"), email = "hidefungi@gmail.com")
+Description: Purpose of this package makes metabarcoding workflow more efficient. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -23,4 +21,7 @@ Imports:
     purrr,
     magrittr,
     glue,
-    rlang
+    rlang,
+    here,
+    xml2,
+    utils
