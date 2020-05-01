@@ -17,6 +17,3 @@ Github with:
 devtools::install_github("Hide-Fun/metabr")
 ```
 
-## ライセンス
-MIT
-
