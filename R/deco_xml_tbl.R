@@ -5,8 +5,8 @@
 deco_xml_tbl = function(.qualifier) {
   table <- list()
   for(i in 1:length(.qualifier)) {
-    table[[i]] <- .qualifier[[i]] %>% # value
-      xml2::xml_contents() %>%
+    table[[i]] <- .qualifier[[i]] %>%
+      xml2::xml_contents() %>% # extract contents.
       xml2::as_list() %>%
       unlist() %>%
       tibble::enframe() %>%

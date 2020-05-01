@@ -1,9 +1,11 @@
-#' laod fungal sequence and sample data from NCBI using accession ID
+#' Load sequence and sample infomation from NCBI by using E-utilities.
 #'
+#' laod fungal sequence and sample data from NCBI using accession ID.
+#' You should keep to the regulations of E-utilities.
 #' @param .id character, Genbank accession ID.
 #' @param .filename saved xml file name.
 #' @export
-load_ncbi_xml = function(.id, .filename) {
+load_ncbi_xml = function(.id, .filename = "download.xml") {
   id_list <- .id %>%
     dplyr::select(accession_id) %>%
     dplyr::pull()
@@ -12,9 +14,10 @@ load_ncbi_xml = function(.id, .filename) {
   # url
   base_url <-
     "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id={.ids}&rettype=gb&retmode=xml"
-
   # add accession id.
   use_url <- glue::glue(base_url)
+  # download.
   utils::download.file(use_url,
-                destfile = glue::glue(here::here("{.filename}")))
+                       destfile = here::here(.filename))
+  Sys.sleep(0.5)
 }

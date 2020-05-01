@@ -2,9 +2,9 @@
 % Please edit documentation in R/load_ncbi_xml.R
 \name{load_ncbi_xml}
 \alias{load_ncbi_xml}
-\title{laod fungal sequence and sample data from NCBI using accession ID}
+\title{Load sequence and sample infomation from NCBI by using E-utilities.}
 \usage{
-load_ncbi_xml(.id, .filename)
+load_ncbi_xml(.id, .filename = "download.xml")
 }
 \arguments{
 \item{.id}{character, Genbank accession ID.}
@@ -12,5 +12,6 @@ load_ncbi_xml(.id, .filename)
 \item{.filename}{saved xml file name.}
 }
 \description{
-laod fungal sequence and sample data from NCBI using accession ID
+laod fungal sequence and sample data from NCBI using accession ID.
+You should keep to the regulations of E-utilities.
 }

@@ -1,4 +1,4 @@
-Package: metabar
+Package: metabarcode
 Type: Package
 Title: matabar; tools for metabarcoding
 Version: 0.0.0.9000
@@ -8,11 +8,9 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests: 
-    testthat,
-    ggplot2
+    testthat
 RoxygenNote: 7.1.0
 Imports: 
-    vegan,
     dplyr,
     tidyr,
     tibble,

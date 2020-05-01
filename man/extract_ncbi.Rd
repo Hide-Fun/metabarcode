@@ -9,7 +9,7 @@ extract_ncbi(.xml, .id)
 \arguments{
 \item{.xml}{xml file}
 
-\item{.id}{id file}
+\item{.id}{accession id file}
 }
 \description{
 This function make index_1.fasta and index_2.fasta from SampleSheet.csv.
