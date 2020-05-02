@@ -3,7 +3,7 @@ Type: Package
 Title: matabar; tools for metabarcoding
 Version: 0.0.0.9000
 Authors@R: person("Hidehito", "Okada", role = c("aut", "cre"), email = "hidefungi@gmail.com")
-Description: Purpose of this package makes metabarcoding workflow more efficient. 
+Description: Purpose of this package makes metabarcoding workflow more efficient in R. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -23,3 +23,5 @@ Imports:
     here,
     xml2,
     utils
+Depends: 
+    R (>= 2.10)
