@@ -1,0 +1,11 @@
+query,superkingdom,kingdom,subkingdom,phylum,class,subclass,order,suborder,family,subfamily,tribe,subtribe,genus,species
+OTU1,superkingdom1,kingdom1,subkingdom1,phylum1,class1,subclass1,order1,suborder1,family1,subfamily1,tribe1,subtrible1,genus1,species1
+OTU2,superkingdom2,kingdom2,subkingdom2,phylum2,class2,subclass2,order2,suborder2,family2,subfamily2,tribe2,subtrible2,genus2,species2
+OTU3,superkingdom3,kingdom3,subkingdom3,phylum3,class3,subclass3,order3,suborder3,family3,subfamily3,tribe3,subtrible3,genus3,species3
+OTU4,superkingdom4,kingdom4,subkingdom4,phylum4,class4,subclass4,order4,suborder4,family4,subfamily4,tribe4,subtrible4,genus4,species4
+OTU5,superkingdom5,kingdom5,subkingdom5,phylum5,class5,subclass5,order5,suborder5,family5,subfamily5,tribe5,subtrible5,genus5,species5
+OTU6,superkingdom6,kingdom6,subkingdom6,phylum6,class6,subclass6,order6,suborder6,family6,subfamily6,tribe6,subtrible6,genus6,species6
+OTU7,superkingdom7,kingdom7,subkingdom7,phylum7,class7,subclass7,order7,suborder7,family7,subfamily7,tribe7,subtrible7,genus7,species7
+OTU8,superkingdom8,kingdom8,subkingdom8,phylum8,class8,subclass8,order8,suborder8,family8,subfamily8,tribe8,subtrible8,genus8,species8
+OTU9,superkingdom9,kingdom9,subkingdom9,phylum9,class9,subclass9,order9,suborder9,family9,subfamily9,tribe9,subtrible9,genus9,species9
+OTU10,superkingdom10,kingdom10,subkingdom10,phylum10,class10,subclass10,order10,suborder10,family10,subfamily10,tribe10,subtrible10,genus10,species10
