@@ -3,17 +3,10 @@
 
 # metabarcode
 
-## motivation
+## Installation
 
-このパッケージは作業の効率化を目的として作成しており、今まで解析に使用した自作関数をまとめたものです。
-主に菌類のメターバーコーディングに関係するものが含まれます。
-
-## installation
-
-You can install the released version of metabr from
-Github with:
+You can install the released version of metabr from Githb with:
 
 ``` r
-devtools::install_github("Hide-Fun/metabr")
+devtools::install_github("Hide-Fun/metabarcode")
 ```
-
