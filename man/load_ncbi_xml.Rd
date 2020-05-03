@@ -4,12 +4,14 @@
 \alias{load_ncbi_xml}
 \title{Load sequence and sample infomation from NCBI by using E-utilities.}
 \usage{
-load_ncbi_xml(.id, .filename = "download.xml")
+load_ncbi_xml(.id, .filename = "download.xml", .term = F)
 }
 \arguments{
 \item{.id}{character, Genbank accession ID.}
 
 \item{.filename}{saved xml file name.}
+
+\item{.term}{logical, you understand E-Utilities term ?}
 }
 \description{
 laod fungal sequence and sample data from NCBI using accession ID.

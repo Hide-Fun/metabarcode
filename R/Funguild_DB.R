@@ -5,8 +5,7 @@
 #' Names of output file is Funguild_DB.txt.
 #' @param .otu_table sumary table.
 #' @param .identify_list identifying result.
-#' @example
-#' Funguild_DB(otu_table, identidy_table)
+#' @examples
 Funguild_DB = function(.otu_table, .identify_list) {
   table <- .otu_table
   group <-  .identify_list
