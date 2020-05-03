@@ -5,7 +5,8 @@
 #' @param .id character, Genbank accession ID.
 #' @param .filename saved xml file name.
 #' @param .term logical, you understand E-Utilities term ?
-#' @export
+#' @example
+#' load_ncbi_xml(accession_id, "test.xml", T)
 load_ncbi_xml = function(.id, .filename = "download.xml", .term = F) {
   if(.term == F) {
     stop()
