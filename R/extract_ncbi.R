@@ -8,7 +8,7 @@ extract_ncbi = function(.xml, .id) {
   # extract sample information (Feature table).
   GBFeature_quals <- xml2::xml_find_all(.xml, "//GBFeature_quals")
   # extract GBqualifier.
-  qualifier_bundle <- purrr::map(GBFeature_quals, ~xml2::xml_children(x = .x))
+  qualifier_bundle <- deco_xml(GBFeature_quals)
   # convert tibble
   info_nest_table <- purrr::map(.x = qualifier_bundle, ~deco_xml_tbl(.qualifier = .x))
   # rehsape Feature table.
