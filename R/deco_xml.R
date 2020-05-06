@@ -2,7 +2,6 @@
 #'
 #'
 #' @param .GBFeature_quals GBFeature_quals
-#' @export
 deco_xml = function(.GBFeature_quals) {
   GBqualifier <- list()
   for(i in 1:length(.GBFeature_quals)) {
