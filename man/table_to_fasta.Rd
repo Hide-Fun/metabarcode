@@ -7,7 +7,7 @@
 table_to_fasta(.data, .otu, .seq)
 }
 \arguments{
-\item{.data}{table}
+\item{.data}{data.frame}
 
 \item{.otu}{otu column name.}
 

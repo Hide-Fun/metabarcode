@@ -1,6 +1,6 @@
 #' Make table for PCR 96 plate.
 #'
-#' @param .data input data.
+#' @param .data data.frame.
 #' @param .col_label column names
 #' @param .plate_num 96 plate number
 #' @export

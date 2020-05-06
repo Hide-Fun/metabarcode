@@ -7,7 +7,7 @@
 PCR_table_96(.data, .col_label, .plate_num)
 }
 \arguments{
-\item{.data}{input data.}
+\item{.data}{data.frame.}
 
 \item{.col_label}{column names}
 

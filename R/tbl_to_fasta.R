@@ -1,6 +1,6 @@
 #' Convert table to fasta.
 #'
-#' @param .data table
+#' @param .data data.frame
 #' @param .otu otu column name.
 #' @param .seq sequence column name.
 #' @export
