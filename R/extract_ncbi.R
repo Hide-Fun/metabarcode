@@ -30,15 +30,12 @@ extract_ncbi = function(.xml, .id) {
   # extract difinition
   def <- xml2::xml_find_all(.xml, "//GBSeq_definition") %>%
     xml_to_tibble()
-  # extract division.
-  div <- xml2::xml_find_all(.xml, "//GBSeq_division") %>%
-    xml_to_tibble()
   # extract accession ID
   accession_id <- xml2::xml_find_all(.xml, "//GBSeq_primary-accession") %>%
     xml_to_tibble()
   # bind sequence, difinition, accession ID
   sample_feature <-
-    dplyr::bind_rows(def, accession_id, seq, div) %>%
+    dplyr::bind_rows(def, accession_id, seq) %>%
     tidyr::pivot_longer(-.item, names_to = "num_f", values_to = "value") %>%
     tidyr::pivot_wider(names_from = ".item", values_from = "value")
   # join accession id and extracted data.
