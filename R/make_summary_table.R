@@ -14,7 +14,7 @@ make_summary_table = function(
 {
   # load funguild analysis
   funguild <- .funguild %>%
-    rename(otu = OTU)
+    dplyr::rename(otu = OTU)
 
   # load representative sequences.
   seq <- .seq
@@ -24,38 +24,38 @@ make_summary_table = function(
   # remove size=*.
   if(.remove == T) {
     seq_clean <- seq %>%
-      mutate(otu = str_remove(OTU, ";size=\\d+")) %>%
-      select(-OTU)
+      dplyr::mutate(otu = stringr::str_remove(OTU, ";size=\\d+")) %>%
+      dplyr::select(-OTU)
   } else {
     seq_clean <- seq
   }
 
   # replace 1 to 0 and merge.
   funguild_seq <- funguild %>%
-    mutate(across(starts_with(.id), ~if_else(.== 1, 0, .))) %>%
-    left_join(seq_clean, by = "otu")
+    dplyr::mutate(dplyr::across(dplyr::starts_with(.id), ~dplyr::if_else(.== 1, 0, .))) %>%
+    dplyr::left_join(seq_clean, by = "otu")
 
   # calculate sum of OTUs and sequences.
   funguild_seq_sum <- funguild_seq %>%
-    rowwise(otu) %>%
-    mutate(sequence_per_otu = sum(c_across(starts_with(.id))))
+    dplyr::rowwise(otu) %>%
+    dplyr::mutate(sequence_per_otu = sum(dplyr::c_across(dplyr::starts_with(.id))))
 
   funguild_seq_sum
 
   # calculate number of OTU per sample, number of sequences per sample.
   otu_seq_num <- funguild_seq %>%
-    pivot_longer(starts_with(.id), names_to = "samplename", values_to = "seq_num") %>%
-    mutate(otu_num = if_else(seq_num > 0, 1, 0)) %>%
-    group_by(samplename) %>%
-    summarise(otu_per_sample = sum(otu_num),
-              sequence_per_sample = sum(seq_num))
+    tidyr::pivot_longer(starts_with(.id), names_to = "samplename", values_to = "seq_num") %>%
+    dplyr::mutate(otu_num = if_else(seq_num > 0, 1, 0)) %>%
+    dplyr::group_by(samplename) %>%
+    dplyr::summarise(otu_per_sample = sum(otu_num),
+                     sequence_per_sample = sum(seq_num))
   #> `summarise()` ungrouping output (override with `.groups` argument)
 
   otu_seq_num
 
   left <- otu_seq_num %>%
-    left_join(sample_info, by ="samplename") %>%
-    arrange(sample_info)
+    dplyr::left_join(sample_info, by ="samplename") %>%
+    dplyr::arrange(sample_info)
 
   if(.unite == T) {
     pattern <- left$samplename
@@ -63,9 +63,9 @@ make_summary_table = function(
                "order", "family",
                "genus")
     body <- funguild_seq_sum %>%
-      relocate(all_of(pattern)) %>%
-      separate(taxonomy, into = taxon, sep = ";") %>%
-      arrange(phylum, class,
+      dplyr::relocate(dplyr::all_of(pattern)) %>%
+      dplyr::separate(taxonomy, into = taxon, sep = ";") %>%
+      dplyr::arrange(phylum, class,
               order, family,
               genus)
   } else {
@@ -77,9 +77,9 @@ make_summary_table = function(
                "genus", "species")
 
     body <- funguild_seq_sum %>%
-      relocate(all_of(pattern)) %>%
-      separate(taxonomy, into = taxon, sep = ";") %>%
-      arrange(superkingdom, kingdom, subkingdom,
+      dplyr::relocate(dplyr::all_of(pattern)) %>%
+      tidyr::separate(taxonomy, into = taxon, sep = ";") %>%
+      dplyr::arrange(superkingdom, kingdom, subkingdom,
               phylum, class, subclass,
               order, suborder, family,
               subfamily, tribe, subtribe,

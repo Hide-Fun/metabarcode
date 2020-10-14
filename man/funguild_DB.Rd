@@ -12,7 +12,5 @@ Funguild_DB(.otu_table, .identify_list)
 \item{.identify_list}{identifying result.}
 }
 \description{
-Creating table for analysis of FUNGuild ( http://www.stbates.org/guilds/app.php ).
-This function requir two tables, (1) summary_table of OTU/read_num, (2) identification of each OTU.
-Names of output file is Funguild_DB.txt.
+Creating table for analysis of FUNGuild.
 }
