@@ -64,7 +64,7 @@ make_summary_table = function(
                "genus")
     body <- funguild_seq_sum %>%
       dplyr::relocate(dplyr::all_of(pattern)) %>%
-      dplyr::separate(taxonomy, into = taxon, sep = ";") %>%
+      tidyr::separate(taxonomy, into = taxon, sep = ";") %>%
       dplyr::arrange(phylum, class,
               order, family,
               genus)
@@ -88,3 +88,6 @@ make_summary_table = function(
   rlt <- list(body, left)
   return(rlt)
 }
+
+
+
