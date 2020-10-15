@@ -15,7 +15,7 @@ Funguild_DB = function(.otu_table, .identify_list) {
     print("Error: identify_list has query column, you should rename query to OTU !!")
   } else{
     taxonomy <- group %>%
-      dplyr::mutate_all(stringr::str_replace_na(.)) %>%
+      dplyr::mutate(dplyr::across(dplyr::everything(), stringr::str_replace_na(., "NA"))) %>%
       tidyr::unite(col = "taxonomy", superkingdom:species, sep = ";", remove = T) %>%
       dplyr::mutate(taxonomy = stringr::str_replace_all(taxonomy, "NA", "unidentified"))
     Funguild_DB <- table %>%
