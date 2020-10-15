@@ -4,12 +4,14 @@
 \alias{Funguild_DB}
 \title{Creating table for FUNGuild.}
 \usage{
-Funguild_DB(.otu_table, .identify_list)
+Funguild_DB(.otu_table, .identify_list, .tax_pat)
 }
 \arguments{
 \item{.otu_table}{sumary table.}
 
 \item{.identify_list}{identifying result.}
+
+\item{.tax_pat}{select like syntax.}
 }
 \description{
 Creating table for analysis of FUNGuild.

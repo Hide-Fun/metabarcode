@@ -3,10 +3,12 @@
 #' Creating table for analysis of FUNGuild.
 #' @param .otu_table sumary table.
 #' @param .identify_list identifying result.
+#' @param .tax_pat select like syntax.
 #' @export
-Funguild_DB = function(.otu_table, .identify_list) {
+Funguild_DB = function(.otu_table, .identify_list, .tax_pat) {
   table <- .otu_table
   group <-  .identify_list
+
 
   print(paste0("Row number of otu_table is", " ", nrow(table), "."))
   print(paste0("Row number of group is", " ", nrow(group), "."))
@@ -16,7 +18,7 @@ Funguild_DB = function(.otu_table, .identify_list) {
   } else{
     taxonomy <- group %>%
       dplyr::mutate(dplyr::across(dplyr::everything(), ~stringr::str_replace_na(., "NA"))) %>%
-      tidyr::unite(col = "taxonomy", superkingdom:species, sep = ";", remove = T) %>%
+      tidyr::unite(col = "taxonomy", .tax_pat, sep = ";", remove = T) %>%
       dplyr::mutate(taxonomy = stringr::str_replace_all(taxonomy, "NA", "unidentified"))
     Funguild_DB <- table %>%
       tidyr::pivot_longer(-samplename, names_to = "OTU", values_to = "read_num") %>%
