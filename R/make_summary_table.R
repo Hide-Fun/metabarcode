@@ -5,12 +5,13 @@
 #' @param .funguild funguild
 #' @param .seq clustered.fasta
 #' @param .sample_info sample information
-#' @param .unite UNITE DB or overall_genus
+#' @param .tax_pat UNITE DB or overall_genus or another.
+#' @param .taxon manual
 #' @param .remove remove size.
 #' @export
 make_summary_table = function(
-  .id, .funguild, .seq, .sample_info, .unite = T,
-  .remove = T)
+  .id, .funguild, .seq, .sample_info, .tax_pat = "unite",
+  .taxon, .remove = T)
 {
   # load funguild analysis
   funguild <- .funguild %>%
@@ -57,7 +58,7 @@ make_summary_table = function(
     dplyr::left_join(sample_info, by ="samplename") %>%
     dplyr::arrange(sample_info)
 
-  if(.unite == T) {
+  if(.tax_pat == "unite") {
     pattern <- left$samplename
     taxon <- c("phylum", "class",
                "order", "family",
@@ -68,22 +69,31 @@ make_summary_table = function(
       dplyr::arrange(phylum, class,
               order, family,
               genus)
-  } else {
+  } else if(.tax_pat == "default") {
     pattern <- left$samplename
     taxon <- c("superkingdom", "kingdom", "subkingdom",
                "phylum", "class", "subclass",
                "order", "suborder", "family",
                "subfamily", "tribe", "subtribe",
                "genus", "species")
-
     body <- funguild_seq_sum %>%
       dplyr::relocate(dplyr::all_of(pattern)) %>%
       tidyr::separate(taxonomy, into = taxon, sep = ";") %>%
       dplyr::arrange(superkingdom, kingdom, subkingdom,
-              phylum, class, subclass,
-              order, suborder, family,
-              subfamily, tribe, subtribe,
-              genus, species)
+                     phylum, class, subclass,
+                     order, suborder, family,
+                     subfamily, tribe, subtribe,
+                     genus, species)
+
+  } else if(.tax_pat == "manual") {
+    pattern <- left$samplename
+    taxon <- .taxon
+    body <- funguild_seq_sum %>%
+      dplyr::relocate(dplyr::all_of(pattern)) %>%
+      tidyr::separate(taxonomy, into = taxon, sep = ";") %>%
+      dplyr::arrange(!!!rlang::syms(.taxon))
+  } else {
+    stop("You should set .tax_pat correct!!")
   }
   rlt <- list(body, left)
   return(rlt)
