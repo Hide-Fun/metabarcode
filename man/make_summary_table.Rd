@@ -4,7 +4,15 @@
 \alias{make_summary_table}
 \title{Make summary table}
 \usage{
-make_summary_table(.id, .funguild, .seq, .sample_info, .unite = T, .remove = T)
+make_summary_table(
+  .id,
+  .funguild,
+  .seq,
+  .sample_info,
+  .tax_pat = "unite",
+  .taxon,
+  .remove = T
+)
 }
 \arguments{
 \item{.id}{siz002}
@@ -15,7 +23,9 @@ make_summary_table(.id, .funguild, .seq, .sample_info, .unite = T, .remove = T)
 
 \item{.sample_info}{sample information}
 
-\item{.unite}{UNITE DB or overall_genus}
+\item{.tax_pat}{UNITE DB or overall_genus or another.}
+
+\item{.taxon}{manual}
 
 \item{.remove}{remove size.}
 }
