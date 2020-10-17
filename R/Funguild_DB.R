@@ -1,8 +1,8 @@
 #' Creating table for FUNGuild.
 #'
 #' Creating table for analysis of FUNGuild.
-#' @param .otu_table table (see eample).
-#' @param .identify_list identifying result (see eample).
+#' @param .otu_table table (see example).
+#' @param .identify_list identifying result (see example).
 #' @param .tax_pat character, specify taxonomic levels containing .identify_list in same order.
 #' @examples
 #' # make otu table.

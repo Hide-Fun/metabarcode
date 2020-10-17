@@ -4,11 +4,22 @@
 \alias{parse_clustered_otu}
 \title{parse_clustered_otu}
 \usage{
-parse_clustered_otu(.df)
+parse_clustered_otu(.clustered_otu, .col_name = X1)
 }
 \arguments{
-\item{.df}{data.frame, tibble}
+\item{.clustered_otu}{clustered.otu.gz produced by Claident.}
+
+\item{.col_names}{name of column.}
 }
 \description{
 parse_clustered_otu
+}
+\examples{
+clustered_otu <- data.frame(
+   otu = c(">representative_otu1", "assigned_otu1", "assigned_otu2",
+          ">representative_otu2", "assigned_otu1",
+          ">representative_otu3")
+)
+parse_clustered_otu(.clustered_otu = clustered_otu,
+                    .col_name = otu)
 }

@@ -7,9 +7,9 @@
 funguild_db(.otu_table, .identify_list, .tax_pat)
 }
 \arguments{
-\item{.otu_table}{table (see eample).}
+\item{.otu_table}{table (see example).}
 
-\item{.identify_list}{identifying result (see eample).}
+\item{.identify_list}{identifying result (see example).}
 
 \item{.tax_pat}{character, specify taxonomic levels containing .identify_list in same order.}
 }
