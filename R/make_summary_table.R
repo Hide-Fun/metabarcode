@@ -5,28 +5,75 @@
 #' @param .funguild funguild
 #' @param .seq clustered.fasta
 #' @param .sample_info sample information
-#' @param .tax_pat UNITE DB or overall_genus or another.
+#' @param .tax_pat UNITE DB or overall_genus or another. If you specify "manual"
 #' @param .taxon manual
 #' @param .remove remove size.
-#' @export
+#' @examples
+#' identify_list <- data.frame(
+#' otu = c("otu1", "otu2"),
+#' phylum = c("p1", "p2"),
+#' order = c("o1", "o2"),
+#' family = c("f1", "f2"),
+#' genus = c("g1", "g2")
+#' )
+#'
+#' otu_table <- data.frame(
+#'   samplename = c("id_sample1", "id_sample2"),
+#'   otu1 = c(1, 0),
+#'   otu2 = c(0, 39)
+#' )
+#'
+#' seq <- data.frame(
+#'   otu = c("otu1", "otu2"),
+#'   seq = c("seq1", "seq2")
+#' )
+#'
+#' sample_info <- data.frame(
+#'   samplename = c("id_sample1", "id_sample2"),
+#'   sample_info = c("sample_info1", "sample_info2")
+#' )
+#'
+#'
+#' summary <- make_summary_table(
+#'   .id = "id",
+#'   .funguild = funguild_db(otu_table, identify_list, c("phylum", "order", "family", "genus")),
+#'   .seq = seq,
+#'   .tax_pat = "manual",
+#'   .taxon = c("phylum", "order", "family", "genus"),
+#'   .sample_info = sample_info,
+#'   .remove = F
+#' )
+#'
+#' summary[[1]]
+#' summary[[2]]
 make_summary_table = function(
   .id, .funguild, .seq, .sample_info, .tax_pat = "unite",
   .taxon, .remove = T)
 {
   # load funguild analysis
-  funguild <- .funguild %>%
-    dplyr::rename(otu = OTU)
+
+  if("OTU" %in% colnames(.funguild)) {
+    .funguild <- .funguild %>%
+      dplyr::rename(otu = OTU)
+  }
+
+  if("OTU" %in% colnames(.seq)) {
+    .seq <- .seq %>%
+      dplyr::rename(otu = OTU)
+  }
 
   # load representative sequences.
   seq <- .seq
+
+  funguild <- .funguild
 
   sample_info <- .sample_info
 
   # remove size=*.
   if(.remove == T) {
     seq_clean <- seq %>%
-      dplyr::mutate(otu = stringr::str_remove(OTU, ";size=\\d+")) %>%
-      dplyr::select(-OTU)
+      dplyr::mutate(otu = stringr::str_remove(otu, ";size=\\d+")) %>%
+      dplyr::select(-otu)
   } else {
     seq_clean <- seq
   }
@@ -36,14 +83,14 @@ make_summary_table = function(
     dplyr::mutate(dplyr::across(dplyr::starts_with(.id), ~dplyr::if_else(.== 1, 0, .))) %>%
     dplyr::left_join(seq_clean, by = "otu")
 
-  # calculate sum of OTUs and sequences.
+  # calculate sum of otus and sequences.
   funguild_seq_sum <- funguild_seq %>%
     dplyr::rowwise(otu) %>%
     dplyr::mutate(sequence_per_otu = sum(dplyr::c_across(dplyr::starts_with(.id))))
 
   funguild_seq_sum
 
-  # calculate number of OTU per sample, number of sequences per sample.
+  # calculate number of otu per sample, number of sequences per sample.
   otu_seq_num <- funguild_seq %>%
     tidyr::pivot_longer(starts_with(.id), names_to = "samplename", values_to = "seq_num") %>%
     dplyr::mutate(otu_num = if_else(seq_num > 0, 1, 0)) %>%
