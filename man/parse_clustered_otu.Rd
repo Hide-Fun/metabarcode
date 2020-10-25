@@ -9,7 +9,7 @@ parse_clustered_otu(.clustered_otu, .col_name = X1)
 \arguments{
 \item{.clustered_otu}{clustered.otu.gz produced by Claident.}
 
-\item{.col_names}{name of column.}
+\item{.col_name}{name of column.}
 }
 \description{
 parse_clustered_otu

@@ -1,7 +1,7 @@
 Package: metabarcode
 Type: Package
 Title: matabar; tools for metabarcoding
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: person("Hidehito", "Okada", role = c("aut", "cre"), email = "hidefungi@gmail.com")
 Description: Purpose of this package makes metabarcoding workflow more efficient in R. 
 License: MIT + file LICENSE

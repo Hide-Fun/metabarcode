@@ -46,7 +46,7 @@
 #'
 #' summary[[1]]
 #' summary[[2]]
-make_summary_table = function(
+make_summary_table <- function(
   .id, .funguild, .seq, .sample_info, .tax_pat = "unite",
   .taxon, .remove = T)
 {

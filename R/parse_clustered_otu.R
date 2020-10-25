@@ -2,7 +2,7 @@
 #'
 #' parse_clustered_otu
 #' @param .clustered_otu clustered.otu.gz produced by Claident.
-#' @param .col_names name of column.
+#' @param .col_name name of column.
 #' @examples
 #' clustered_otu <- data.frame(
 #'    otu = c(">representative_otu1", "assigned_otu1", "assigned_otu2",

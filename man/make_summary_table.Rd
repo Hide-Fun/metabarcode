@@ -23,7 +23,7 @@ make_summary_table(
 
 \item{.sample_info}{sample information}
 
-\item{.tax_pat}{UNITE DB or overall_genus or another.}
+\item{.tax_pat}{UNITE DB or overall_genus or another. If you specify "manual"}
 
 \item{.taxon}{manual}
 
@@ -31,4 +31,43 @@ make_summary_table(
 }
 \description{
 This function make summary tabel.
+}
+\examples{
+identify_list <- data.frame(
+otu = c("otu1", "otu2"),
+phylum = c("p1", "p2"),
+order = c("o1", "o2"),
+family = c("f1", "f2"),
+genus = c("g1", "g2")
+)
+
+otu_table <- data.frame(
+  samplename = c("id_sample1", "id_sample2"),
+  otu1 = c(1, 0),
+  otu2 = c(0, 39)
+)
+
+seq <- data.frame(
+  otu = c("otu1", "otu2"),
+  seq = c("seq1", "seq2")
+)
+
+sample_info <- data.frame(
+  samplename = c("id_sample1", "id_sample2"),
+  sample_info = c("sample_info1", "sample_info2")
+)
+
+
+summary <- make_summary_table(
+  .id = "id",
+  .funguild = funguild_db(otu_table, identify_list, c("phylum", "order", "family", "genus")),
+  .seq = seq,
+  .tax_pat = "manual",
+  .taxon = c("phylum", "order", "family", "genus"),
+  .sample_info = sample_info,
+  .remove = F
+)
+
+summary[[1]]
+summary[[2]]
 }
