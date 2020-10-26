@@ -65,7 +65,7 @@ summary <- make_summary_table(
   .tax_pat = "manual",
   .taxon = c("phylum", "order", "family", "genus"),
   .sample_info = sample_info,
-  .remove = F
+  .remove = FALSE
 )
 
 summary[[1]]

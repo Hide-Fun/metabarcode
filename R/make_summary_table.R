@@ -8,6 +8,7 @@
 #' @param .tax_pat UNITE DB or overall_genus or another. If you specify "manual"
 #' @param .taxon manual
 #' @param .remove remove size.
+#' @export
 #' @examples
 #' identify_list <- data.frame(
 #' otu = c("otu1", "otu2"),
@@ -41,7 +42,7 @@
 #'   .tax_pat = "manual",
 #'   .taxon = c("phylum", "order", "family", "genus"),
 #'   .sample_info = sample_info,
-#'   .remove = F
+#'   .remove = FALSE
 #' )
 #'
 #' summary[[1]]
@@ -93,7 +94,7 @@ make_summary_table <- function(
   # calculate number of otu per sample, number of sequences per sample.
   otu_seq_num <- funguild_seq %>%
     tidyr::pivot_longer(starts_with(.id), names_to = "samplename", values_to = "seq_num") %>%
-    dplyr::mutate(otu_num = if_else(seq_num > 0, 1, 0)) %>%
+    dplyr::mutate(otu_num = dplyr::if_else(seq_num > 0, 1, 0)) %>%
     dplyr::group_by(samplename) %>%
     dplyr::summarise(otu_per_sample = sum(otu_num),
                      sequence_per_sample = sum(seq_num))

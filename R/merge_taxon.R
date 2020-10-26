@@ -3,6 +3,7 @@
 #' Merging taxon in one column by deepest taxonomic level.
 #' @param .identify_list table (see example).
 #' @param .id logical, make id against each taxon. This is useful in makeing labels by each OTU.
+#' @export
 #' @examples
 #' identify_list <- data.frame(
 #'    otu = c("otu1", "otu2", "otu3", NA),
@@ -11,8 +12,8 @@
 #'    family = c("f1", NA, "f3", NA),
 #'    genus = c(NA, NA, "g3", NA)
 #' )
-#' merge_taxon(.identify_list = identify_list, .id = T)
-#' merge_taxon(.identify_list = identify_list, .id = F)
+#' merge_taxon(.identify_list = identify_list, .id = TRUE)
+#' merge_taxon(.identify_list = identify_list, .id = FALSE)
 merge_taxon = function(
   .identify_list,
   .id = F)
@@ -69,7 +70,7 @@ merge_taxon = function(
       dplyr::left_join(merge_gfop_na, by = "id") %>%
       dplyr::group_by(taxon) %>%
       dplyr::mutate(id2 = dplyr::row_number(),
-                    taxon = str_c(taxon, id2, sep = "_")) %>%
+                    taxon = stringr::str_c(taxon, id2, sep = "_")) %>%
       dplyr::ungroup()
   } else {
     all <- df %>%

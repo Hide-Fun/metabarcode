@@ -2,7 +2,7 @@
 % Please edit documentation in R/funguild_db.R
 \name{funguild_db}
 \alias{funguild_db}
-\title{Creating table for FUNGuild.}
+\title{\code{funguild_db}: Creating table for FUNGuild.}
 \usage{
 funguild_db(.otu_table, .identify_list, .tax_pat)
 }
@@ -17,7 +17,7 @@ funguild_db(.otu_table, .identify_list, .tax_pat)
 Creating table for analysis of FUNGuild.
 }
 \examples{
-library(metabarcode)
+
 # make otu table.
 otu_table <- data.frame(
    samplename = c("sample1", "sample2"),
@@ -34,9 +34,7 @@ identify_list <- data.frame(
    genus = c("g1", "g2")
 )
 
-funguild_db(
-　 .otu_table = otu_table,
-   .identify_list = identify_list,
-   .tax_pat = c("phylum", "order", "family", "genus")
-)
+funguild_db(.otu_table = otu_table,
+            .identify_list = identify_list,
+            .tax_pat = c("phylum", "order", "family", "genus"))
 }

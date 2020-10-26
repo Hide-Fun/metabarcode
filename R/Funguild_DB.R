@@ -1,11 +1,12 @@
-#' Creating table for FUNGuild.
+#' \code{funguild_db}: Creating table for FUNGuild.
 #'
 #' Creating table for analysis of FUNGuild.
 #' @param .otu_table table (see example).
 #' @param .identify_list identifying result (see example).
 #' @param .tax_pat character, specify taxonomic levels containing .identify_list in same order.
+#' @export
 #' @examples
-#' library(metabarcode)
+#'
 #' # make otu table.
 #' otu_table <- data.frame(
 #'    samplename = c("sample1", "sample2"),
@@ -22,14 +23,11 @@
 #'    genus = c("g1", "g2")
 #' )
 #'
-#' funguild_db(
-#' 　 .otu_table = otu_table,
-#'    .identify_list = identify_list,
-#'    .tax_pat = c("phylum", "order", "family", "genus")
-#' )
-funguild_db <- function(
-  .otu_table, .identify_list, .tax_pat)
-{
+#' funguild_db(.otu_table = otu_table,
+#'             .identify_list = identify_list,
+#'             .tax_pat = c("phylum", "order", "family", "genus"))
+
+funguild_db <- function(.otu_table, .identify_list, .tax_pat) {
   table <- .otu_table
   group <-  .identify_list
 

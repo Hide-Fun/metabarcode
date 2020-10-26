@@ -3,6 +3,7 @@
 #' parse_clustered_otu
 #' @param .clustered_otu clustered.otu.gz produced by Claident.
 #' @param .col_name name of column.
+#' @export
 #' @examples
 #' clustered_otu <- data.frame(
 #'    otu = c(">representative_otu1", "assigned_otu1", "assigned_otu2",
@@ -22,7 +23,7 @@ parse_clustered_otu = function(.clustered_otu, .col_name = X1) {
   # assign each sequences.
   for(i in 1:nrow(.clustered_otu)) {
     val1 <- .clustered_otu[[1]][[i]]
-    if(str_detect(val1, ">")) {
+    if(stringr::str_detect(val1, ">")) {
       rlt1[[1]][[i]] <- val1
     } else {
       rlt1[[2]][[i - 1]] <- val1

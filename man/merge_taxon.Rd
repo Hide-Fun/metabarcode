@@ -22,6 +22,6 @@ identify_list <- data.frame(
    family = c("f1", NA, "f3", NA),
    genus = c(NA, NA, "g3", NA)
 )
-merge_taxon(.identify_list = identify_list, .id = T)
-merge_taxon(.identify_list = identify_list, .id = F)
+merge_taxon(.identify_list = identify_list, .id = TRUE)
+merge_taxon(.identify_list = identify_list, .id = FALSE)
 }
