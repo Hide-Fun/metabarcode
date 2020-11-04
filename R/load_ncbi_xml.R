@@ -5,6 +5,7 @@
 #' @param .id character, Genbank accession ID.
 #' @param .filename saved xml file name.
 #' @param .term logical, you understand E-Utilities term ?
+#' @export
 load_ncbi_xml = function(.id, .filename = "download.xml", .term = F) {
   if(.term == F) {
     stop()
@@ -25,3 +26,5 @@ load_ncbi_xml = function(.id, .filename = "download.xml", .term = F) {
     Sys.sleep(0.5)
   }
 }
+
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=MT487982&rettype=gb&retmode=xml

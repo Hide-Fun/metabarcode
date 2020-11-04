@@ -1,4 +1,4 @@
-#' cariculate time lag
+#' alculate time lag
 #'
 #' @param .time time
 #' @param .col col
