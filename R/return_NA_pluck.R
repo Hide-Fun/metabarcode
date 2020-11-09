@@ -6,7 +6,6 @@
 #' @param .default return NA
 #' @export
 return_NA_pluck = function(.x, ..., .default = NA) {
-  rlt <- pluck(.x = .x, ..., .default = .default)
-  rlt <- unlist(rlt)
+  rlt <- purrr::pluck(.x = .x, ..., .default = .default)
   return(rlt)
 }

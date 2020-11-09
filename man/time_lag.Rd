@@ -2,7 +2,7 @@
 % Please edit documentation in R/time_lag.R
 \name{time_lag}
 \alias{time_lag}
-\title{cariculate time lag}
+\title{alculate time lag}
 \usage{
 time_lag(.time, .col, .fill, .order = "top")
 }
@@ -16,5 +16,5 @@ time_lag(.time, .col, .fill, .order = "top")
 \item{.order}{character, "top" or "end".}
 }
 \description{
-cariculate time lag
+alculate time lag
 }

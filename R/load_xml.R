@@ -4,9 +4,11 @@
 #' You should keep to the regulations of E-utilities.
 #' @param .id character, Genbank accession ID.
 #' @param .filename saved xml file name.
+#' @param .fasta only sequence.
 #' @param .term logical, you understand E-Utilities term ?
 #' @export
-load_ncbi_xml = function(.id, .filename = "download.xml", .term = F) {
+load_seq = function(.id, .filename = "download.xml",
+                    .fasta = T, .term = F) {
   if(.term == F) {
     stop()
   } else {
@@ -15,9 +17,13 @@ load_ncbi_xml = function(.id, .filename = "download.xml", .term = F) {
       dplyr::pull()
     # accession id
     .ids <- stringr::str_c(id_list, collapse = ",")
-    # url
-    base_url <-
-      "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id={.ids}&rettype=gb&retmode=xml"
+    if(.fasta == T) {
+      base_url <- "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id={.ids}&rettype=fasta&retmode=text"
+    } else {
+      # url
+      base_url <-
+        "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id={.ids}&rettype=gb&retmode=xml"
+    }
     # add accession id.
     use_url <- glue::glue(base_url)
     # download.
@@ -27,4 +33,3 @@ load_ncbi_xml = function(.id, .filename = "download.xml", .term = F) {
   }
 }
 
-https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nucleotide&id=MT487982&rettype=gb&retmode=xml

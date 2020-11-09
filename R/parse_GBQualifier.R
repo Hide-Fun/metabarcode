@@ -1,7 +1,7 @@
 #' Parse GBQualifier
 #'
 #' This function use internally parse_xml.
-#' @param .GBQualifier
+#' @param .GBQualifier GBQualifier
 #' @export
 #' @examples
 #' GBFeature_quals <- list(GBQualifier = list(
@@ -10,7 +10,7 @@
 #'
 #' parse_GBQualifier(.GBQualifier = GBFeature_quals)
 parse_GBQualifier = function(.GBQualifier = list()) {
-  .GBQualifier <- flatten(.GBQualifier)
+  .GBQualifier <- purrr::flatten(.GBQualifier)
   rlt <- tibble::tibble(
     name = .GBQualifier[[1]],
     value = .GBQualifier[[2]]

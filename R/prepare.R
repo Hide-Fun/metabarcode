@@ -1,7 +1,7 @@
 #' Prepare list for parese_xml()
 #'
 #'
-#' @param .xml
+#' @param .xml xml
 #' @export
 prepare = function(.xml) {
   # convert to list.
@@ -11,7 +11,7 @@ prepare = function(.xml) {
   by_sample <- vector("list", length(.xml_list[["GBSet"]]))
   ## split.
   for(i in 1:length(.xml_list[["GBSet"]])) {
-    by_sample[[i]] <- .xml_list[["GBSet"]][[i]]
+    by_sample[[i]] <- list("GBSeq" = .xml_list[["GBSet"]][[i]])
   }
   return(by_sample)
 }
