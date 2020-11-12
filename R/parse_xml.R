@@ -60,7 +60,7 @@ parse_xml = function(.xml_list) {
     .x = .xml_list,
     "GBSeq", spec3[[1]], spec3[[2]], spec3[[3]]
   )
-  feature <- purrr::map(qual, parse_GBQualifier) %>%
+  feature <- purrr::map(qual, posiible_parse_GBQualifier) %>%
     dplyr::bind_rows()
   rlt <- dplyr::bind_rows(
     base_info, title_df, feature)

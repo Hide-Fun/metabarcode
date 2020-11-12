@@ -1,6 +1,6 @@
-#' Parse GBQualifier
+#' Parse GBQualifier (possibly).
 #'
-#' This function use internally parse_xml.
+#' This function use internally in parse_xml.
 #' @param .GBQualifier GBQualifier
 #' @export
 #' @examples
@@ -9,13 +9,7 @@
 #'                    "GBQualifier_value" = "Ceratobasidiaceae sp."))
 #'
 #' parse_GBQualifier(.GBQualifier = GBFeature_quals)
-parse_GBQualifier = function(.GBQualifier = list()) {
-  .GBQualifier <- purrr::flatten(.GBQualifier)
-  rlt <- tibble::tibble(
-    name = .GBQualifier[[1]],
-    value = .GBQualifier[[2]]
-  )
-  return(rlt)
-}
-
-
+posiible_parse_GBQualifier <- purrr::possibly(
+  parse_GBQualifier,
+  otherwise = tibble::tibble(name = NA, value = NA)
+)
