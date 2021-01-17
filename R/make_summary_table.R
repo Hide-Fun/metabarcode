@@ -73,8 +73,7 @@ make_summary_table <- function(
   # remove size=*.
   if(.remove == T) {
     seq_clean <- seq %>%
-      dplyr::mutate(otu = stringr::str_remove(otu, ";size=\\d+")) %>%
-      dplyr::select(-otu)
+      dplyr::mutate(otu = stringr::str_remove(otu, ";size=\\d+"))
   } else {
     seq_clean <- seq
   }
